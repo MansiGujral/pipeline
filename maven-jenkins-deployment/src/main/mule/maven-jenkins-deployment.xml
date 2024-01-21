@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="48da6ad4-76e9-45be-81a4-27bd0beed3ad" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mg-maven-deploymentFlow" doc:id="b8eed3c4-a00b-425e-953d-680697f569fa" >
+		<http:listener doc:name="Listener" doc:id="15074853-5be3-44bf-89e6-5b903f58f9ae" config-ref="HTTP_Listener_config" path="/api/maven"/>
+		<logger level="INFO" doc:name="Start" doc:id="11f38b3b-185b-4fd3-ac5d-44161d4c2354" message="Flow started"/>
+		<set-payload value='#["API Started"]' doc:name="Payload" doc:id="9859e3cf-9205-430b-8853-1922eb8a8e36" />
+		<logger level="INFO" doc:name="End" doc:id="dcce834e-b735-439b-a034-c733bc46b809" message="Flow ended"/>
+	</flow>
+
+</mule>
