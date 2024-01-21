@@ -11,7 +11,7 @@ pipeline {
 		  ANYPOINT_CREDENTIALS = credentials('anypointPlatform')
 		}
 	steps {
-	  bat mvn clean deploy -DmuleDeploy -Duser.clientId=${ANYPOINT_CREDENTIALS_USR} -Duser.clientSecret=${ANYPOINT_CREDENTIALS_PSW}'
+	  bat 'mvn clean deploy -DmuleDeploy -Duser.clientId=${ANYPOINT_CREDENTIALS_USR} -Duser.clientSecret=${ANYPOINT_CREDENTIALS_PSW}'
 	  }
 	}
   }
