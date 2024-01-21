@@ -1,0 +1,18 @@
+pipeline {
+	agent any
+	stages {
+	 stage('Build Application') {
+		steps {
+		 bat 'mvn clean install'
+		 }
+		}
+	 stage('Deploy CloudHub') {
+		environment {
+		  ANYPOINT_CREDENTIALS = credentials('anypointPlatform')
+		}
+	steps {
+	  bat mvn package deploy -DmuleDeploy -Duser.clientId=${ANYPOINT_CREDENTIALS_USR} -Duser.clientSecret=${ANYPOINT_CREDENTIALS_PSW}'
+	  }
+	}
+  }
+}
