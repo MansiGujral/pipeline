@@ -11,7 +11,7 @@ environment {
 ANYPOINT_CREDENTIALS = credentials(‘anypointPlatform’)
 }
 steps {
-sh ‘mvn package deploy -DmuleDeploy -Duser.clientId=${ANYPOINT_CREDENTIALS_USR} -Duser.clientSecret=${ANYPOINT_CREDENTIALS_PSW} -DworkerType=Micro -Dworkers=1 -Dregion=us-west-2’
+bat ‘mvn clean deploy -DmuleDeploy -Duser.clientId=${ANYPOINT_CREDENTIALS_USR} -Duser.clientSecret=${ANYPOINT_CREDENTIALS_PSW} -DworkerType=Micro -Dworkers=1 -Dregion=us-east-1’
 }
 }
 }
