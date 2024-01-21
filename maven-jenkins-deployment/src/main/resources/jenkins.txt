@@ -11,8 +11,6 @@ environment {
 ANYPOINT_CREDENTIALS = credentials(‘anypointPlatform’)
 }
 steps {
-echo ‘Deploying mule project due to the latest code commit…’
-echo ‘Deploying to the configured environment….’
 sh ‘mvn package deploy -DmuleDeploy -Duser.clientId=${ANYPOINT_CREDENTIALS_USR} -Duser.clientSecret=${ANYPOINT_CREDENTIALS_PSW} -DworkerType=Micro -Dworkers=1 -Dregion=us-west-2’
 }
 }
